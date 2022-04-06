@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
         Contact Jordan = new Contact("Jordan", "256-567-8876");
@@ -17,7 +16,7 @@ public class Main {
         phonebook.contacts[3] = Jennifer;
 
         Scanner scanner = new Scanner(System.in);
-        while (!phonebook.getIsFull()) {
+        while (phonebook.getIsNotFull()) {
             String contactName;
             String phoneNumber;
             boolean contactExists;
@@ -39,13 +38,10 @@ public class Main {
 
         }
         scanner.close();
-        if(ExitingEarly){
-        System.out.println("Exiting Program. You did not fill the phonebook.");
-        }
-        else{
-        System.out.println("Contact List Full");
+        if (ExitingEarly) {
+            System.out.println("Exiting Program. You did not fill the phonebook.");
+        } else {
+            System.out.println("Contact List Full");
         }
     }
 }
-
-

@@ -1,5 +1,10 @@
+import java.util.Arrays;
+
 public class Phonebook {
     public Contact[] contacts = new Contact[6];
+    private boolean isFull = false;
+    private int firstEmptyPosition = 4;
+
 
     boolean SearchForContact(String firstName){
         for(int i =0; i < contacts.length; i++){
@@ -24,6 +29,21 @@ public class Phonebook {
     }
 
     void addContactToPhoneBook(Contact contact){
-        
+        this.contacts[this.firstEmptyPosition] = contact;
+        firstEmptyPosition++;
+        isPhonebookFull();
+    }
+
+    void isPhonebookFull(){
+        if(Arrays.asList(contacts).contains(null)){
+            this.isFull = false;
+        }
+        else{
+            this.isFull = true;
+        }
+    }
+
+    boolean getIsFull(){
+        return this.isFull;
     }
 }
